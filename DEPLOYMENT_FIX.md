@@ -2,15 +2,19 @@
 
 ## Problem gelöst! ✅
 
-Die beiden Hauptprobleme wurden behoben:
+Alle Probleme wurden behoben:
 
 ### 1. ✅ Railway TOML Syntax-Fehler
 **Problem:** `keys cannot contain : character`
 **Lösung:** railway.toml wurde mit korrekter TOML-Syntax neu geschrieben
 
-### 2. ✅ Volume für Datenpersistenz
+### 2. ✅ VOLUME Keyword im Dockerfile
+**Problem:** `VOLUME keyword is banned in Dockerfiles`
+**Lösung:** VOLUME entfernt, stattdessen Volume-Config in railway.json und railway.toml
+
+### 3. ✅ Volume für Datenpersistenz
 **Problem:** Daten gehen bei Redeploy verloren
-**Lösung:** Volume-Support hinzugefügt + Dokumentation erstellt
+**Lösung:** Volume automatisch via railway.json/railway.toml konfiguriert
 
 ## 🚀 Jetzt neu deployen
 
@@ -22,15 +26,12 @@ Die beiden Hauptprobleme wurden behoben:
 
 ### Nach erfolgreichem Deployment:
 
-4. **Volume hinzufügen** (WICHTIG!)
-   - Settings → Volumes
-   - "+ New Volume"
-   - Name: `neo4j-data`
+4. **Volume wird automatisch erstellt** via railway.json/railway.toml
+   - Volume Name: `neo4j-data`
    - Mount Path: `/data`
-   - Size: 1GB
-   - Add
+   - Wird automatisch beim Deployment hinzugefügt
 
-5. **Service startet automatisch neu**
+5. **Keine manuelle Volume-Konfiguration nötig!**
 
 6. **Verbindung testen:**
    ```
@@ -44,7 +45,7 @@ Die beiden Hauptprobleme wurden behoben:
 Nach dem Fix:
 
 - [ ] Redeploy abgeschlossen (Status: Success)
-- [ ] Volume hinzugefügt (`/data` gemountet)
+- [ ] Volume automatisch erstellt (prüfe Settings → Volumes)
 - [ ] Container läuft (Logs zeigen "Started.")
 - [ ] Neo4j Browser erreichbar
 - [ ] Bolt-Verbindung funktioniert
@@ -65,11 +66,29 @@ icon: https://neo4j.com/...  # ❌ Doppelpunkt im Key
 name = "Neo4j Graph Database"  # ✅ Korrekte TOML-Syntax
 ```
 
-### Dockerfile (Neu)
+### Dockerfile (Gefixt)
+
+**Vorher (fehlerhaft):**
+```dockerfile
+VOLUME /data  # ❌ VOLUME keyword ist in Railway verboten
+```
+
+**Nachher (korrekt):**
+```dockerfile
+# NOTE: Railway volumes must be added via Dashboard or config files
+# Volume wird über railway.json/railway.toml definiert ✅
+```
+
+### railway.json (Neu)
 
 **Hinzugefügt:**
-```dockerfile
-VOLUME /data  # ✅ Persistente Daten
+```json
+"volumes": [
+  {
+    "name": "neo4j-data",
+    "mountPath": "/data"  // ✅ Volume-Config
+  }
+]
 ```
 
 ## 📖 Weitere Dokumentation
