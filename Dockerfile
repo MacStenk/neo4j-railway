@@ -27,15 +27,15 @@ RUN wget -q https://github.com/neo4j/apoc/releases/download/5.15.0/apoc-5.15.0-c
 ENV NEO4J_dbms_security_procedures_unrestricted=apoc.* \
     NEO4J_dbms_security_procedures_allowlist=apoc.*
 
-# Volume für persistente Daten
-# In Railway: Settings → Volumes → Mount at /data
-VOLUME /data
-
 # Expose Ports
 EXPOSE 7474 7687
 
 # Health Check
 HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
     CMD cypher-shell -u neo4j -p changeme123 "RETURN 1" || exit 1
+
+# NOTE: Railway volumes must be added via Dashboard (Settings → Volumes)
+# Recommended mount path: /data
+# This ensures data persistence across deployments
 
 CMD ["neo4j"]

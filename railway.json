@@ -10,5 +10,11 @@
     "restartPolicyMaxRetries": 3,
     "healthcheckPath": "/",
     "healthcheckTimeout": 100
-  }
+  },
+  "volumes": [
+    {
+      "name": "neo4j-data",
+      "mountPath": "/data"
+    }
+  ]
 }

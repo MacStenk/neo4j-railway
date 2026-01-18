@@ -17,6 +17,11 @@ interval = 30
 timeout = 10
 retries = 3
 
+# Railway Volume Configuration
+[[services.neo4j.volumes]]
+name = "neo4j-data"
+mountPath = "/data"
+
 [[services.neo4j.ports]]
 name = "http"
 port = 7474
