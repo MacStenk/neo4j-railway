@@ -130,6 +130,23 @@ Password: your-secure-password
 
 **Note:** Use `bolt://` (not `bolt+s://`) for Railway TCP Proxy connections.
 
+---
+
+## Remote Access with Neo4j Web Bridge
+
+Need to access your Neo4j database from a browser without TLS configuration?
+
+Use [Neo4j Web Bridge](https://github.com/MacStenk/neo4j-web-bridge) - a lightweight proxy that lets you query your database from anywhere via HTTPS.
+
+**Recommended Setup:**
+1. Deploy Neo4j using this repository
+2. Deploy [Neo4j Web Bridge](https://github.com/MacStenk/neo4j-web-bridge) in the same Railway project
+3. Connect via internal network: `bolt://neo4j.railway.internal:7687`
+
+This keeps all traffic within Railway's private network - secure and fast.
+
+---
+
 ## Memory Configuration
 
 Default settings (total ~768MB):
@@ -241,6 +258,12 @@ CALL apoc.help("apoc.create");
 // Check database status
 CALL dbms.components();
 ```
+
+## Related Projects
+
+| Project | Description |
+|---------|-------------|
+| [neo4j-web-bridge](https://github.com/MacStenk/neo4j-web-bridge) | Access your Neo4j database from any browser via HTTPS. Deploy in the same Railway project for secure, internal network communication. |
 
 ## Learning Resources
 
