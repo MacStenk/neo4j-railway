@@ -15,7 +15,8 @@ ENV NEO4J_server_default__listen__address=0.0.0.0 \
     NEO4J_dbms_connector_https_enabled=false
 
 # Security Configuration
-ENV NEO4J_dbms_connector_bolt_tls__level=DISABLED \
+# OPTIONAL enables TLS - Railway's TCP Proxy can handle both
+ENV NEO4J_dbms_connector_bolt_tls__level=OPTIONAL \
     NEO4J_AUTH=neo4j/changeme123
 
 # APOC Plugin für erweiterte Graph-Operationen
