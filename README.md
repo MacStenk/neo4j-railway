@@ -91,7 +91,26 @@ Minimum password length: 8 characters
 
 ## 🌐 Connecting to Neo4j
 
-After deployment, Railway provides two connection methods:
+**⚠️ IMPORTANT: Configure Networking First!**
+
+After deployment, you MUST configure networking in Railway:
+
+### Step 1: Generate HTTP Domain
+1. Settings → Networking → **"Generate Domain"**
+2. This creates: `https://your-app.railway.app` (Port 7474)
+3. Use for: Neo4j Browser
+
+### Step 2: Add TCP Proxy
+1. Settings → Networking → **"+ TCP Proxy"**
+2. Port: **7687**
+3. This creates: `bolt://maglev.proxy.rlwy.net:XXXXX`
+4. Use for: Applications, Cypher-Shell, Neo4j Desktop
+
+**Detailed Guide:** See [NETWORKING_SETUP.md](NETWORKING_SETUP.md)
+
+---
+
+After networking setup, connect using:
 
 ### HTTP Browser (Neo4j Browser)
 
