@@ -1,7 +1,6 @@
 FROM neo4j:5.15.0-community
 
 # Setze Umgebungsvariablen für optimierte Railway-Performance
-# Total RAM Usage: ~768MB (passt in Railway Free/Hobby Tier)
 ENV NEO4J_server_memory_pagecache_size=256M \
     NEO4J_dbms_memory_heap_max__size=512M \
     NEO4J_dbms_memory_heap_initial__size=256M
@@ -14,9 +13,16 @@ ENV NEO4J_server_default__listen__address=0.0.0.0 \
     NEO4J_dbms_connector_http_listen__address=0.0.0.0:7474 \
     NEO4J_dbms_connector_https_enabled=false
 
-# Security Configuration
-ENV NEO4J_dbms_connector_bolt_tls__level=DISABLED \
+# Security Configuration - Enable TLS for web browser access
+ENV NEO4J_dbms_connector_bolt_tls__level=REQUIRED \
     NEO4J_AUTH=neo4j/changeme123
+
+# Generate self-signed certificate for TLS
+RUN mkdir -p /var/lib/neo4j/certificates/bolt && \
+    openssl req -x509 -newkey rsa:4096 -keyout /var/lib/neo4j/certificates/bolt/private.key \
+    -out /var/lib/neo4j/certificates/bolt/public.crt -days 365 -nodes \
+    -subj "/C=DE/ST=Brandenburg/L=Schwedt/O=Railway/CN=yamanote.proxy.rlwy.net" && \
+    chown -R neo4j:neo4j /var/lib/neo4j/certificates
 
 # APOC Plugin für erweiterte Graph-Operationen
 RUN wget -q https://github.com/neo4j/apoc/releases/download/5.15.0/apoc-5.15.0-core.jar \
