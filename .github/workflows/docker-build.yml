@@ -1,0 +1,52 @@
+name: Docker Build Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+      
+    - name: Build Docker image
+      run: |
+        docker build -t neo4j-railway:test .
+        
+    - name: Test Docker image
+      run: |
+        # Start container
+        docker run -d --name neo4j-test \
+          -e NEO4J_AUTH=neo4j/testpassword \
+          -p 7474:7474 -p 7687:7687 \
+          neo4j-railway:test
+        
+        # Wait for Neo4j to start
+        echo "Waiting for Neo4j to start..."
+        sleep 30
+        
+        # Check if Neo4j is running
+        docker ps | grep neo4j-test
+        
+        # Check HTTP endpoint
+        curl -f http://localhost:7474 || exit 1
+        
+        # Check logs
+        docker logs neo4j-test
+        
+        # Stop container
+        docker stop neo4j-test
+        docker rm neo4j-test
+        
+    - name: Check image size
+      run: |
+        SIZE=$(docker images neo4j-railway:test --format "{{.Size}}")
+        echo "Image size: $SIZE"
