@@ -1,38 +1,28 @@
-# Railway Template Configuration
-# This file enables the "Deploy on Railway" button
+schema = "v2"
 
-schema: v2
+[services.neo4j]
+name = "Neo4j Graph Database"
+description = "Production-ready Neo4j 5.15.0 with APOC plugin"
+source = { repo = "MacStenk/neo4j-railway" }
 
-services:
-  neo4j:
-    name: Neo4j Graph Database
-    description: Production-ready Neo4j 5.15.0 with APOC plugin
-    icon: https://neo4j.com/wp-content/uploads/neo4j-icon.png
-    source:
-      repo: MacStenk/neo4j-railway
-    env:
-      NEO4J_AUTH:
-        description: Neo4j authentication (format: username/password)
-        default: neo4j/changeme123
-        required: true
-      NEO4J_server_memory_pagecache_size:
-        description: Pagecache memory size
-        default: 256M
-      NEO4J_dbms_memory_heap_max__size:
-        description: Maximum JVM heap size
-        default: 512M
-      NEO4J_dbms_memory_heap_initial__size:
-        description: Initial JVM heap size
-        default: 256M
-    healthcheck:
-      path: /
-      interval: 30
-      timeout: 10
-      retries: 3
-    ports:
-      - name: http
-        port: 7474
-        protocol: http
-      - name: bolt
-        port: 7687
-        protocol: tcp
+[services.neo4j.env]
+NEO4J_AUTH = { description = "Neo4j authentication (format: username/password)", default = "neo4j/changeme123", required = true }
+NEO4J_server_memory_pagecache_size = { description = "Pagecache memory size", default = "256M" }
+NEO4J_dbms_memory_heap_max__size = { description = "Maximum JVM heap size", default = "512M" }
+NEO4J_dbms_memory_heap_initial__size = { description = "Initial JVM heap size", default = "256M" }
+
+[services.neo4j.healthcheck]
+path = "/"
+interval = 30
+timeout = 10
+retries = 3
+
+[[services.neo4j.ports]]
+name = "http"
+port = 7474
+protocol = "http"
+
+[[services.neo4j.ports]]
+name = "bolt"
+port = 7687
+protocol = "tcp"

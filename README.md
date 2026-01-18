@@ -69,6 +69,26 @@ NEO4J_AUTH=neo4j/your-secure-password
 
 Minimum password length: 8 characters
 
+## 💾 Data Persistence (CRITICAL!)
+
+**⚠️ WITHOUT A VOLUME, ALL DATA IS LOST ON REDEPLOY!**
+
+### Add Volume After First Deployment:
+
+1. Go to Railway Dashboard → Your Service
+2. **Settings → Volumes**
+3. Click **"+ New Volume"**
+4. Configure:
+   - Name: `neo4j-data`
+   - Mount Path: `/data`
+   - Size: 1GB (minimum)
+5. Click **"Add"**
+6. Service will automatically redeploy
+
+**Detailed Guide:** See [VOLUME_SETUP.md](VOLUME_SETUP.md)
+
+**Cost:** ~$0.25/GB/month
+
 ## 🌐 Connecting to Neo4j
 
 After deployment, Railway provides two connection methods:
