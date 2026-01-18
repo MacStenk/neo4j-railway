@@ -1,0 +1,9 @@
+.DS_Store
+*.log
+.env
+.env.local
+.railway
+neo4j/
+data/
+logs/
+*.dump
