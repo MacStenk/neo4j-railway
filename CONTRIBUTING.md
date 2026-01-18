@@ -1,6 +1,6 @@
 # Contributing to Neo4j Railway
 
-Thank you for your interest in contributing! 🎉
+Thank you for your interest in contributing.
 
 ## How to Contribute
 
@@ -98,4 +98,4 @@ Feel free to:
 - Focus on what's best for the community
 - Show empathy towards others
 
-Thank you for contributing! 🙏
+Thank you for contributing.

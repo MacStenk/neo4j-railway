@@ -31,7 +31,7 @@ railway service
 
 ### 3. Environment Variable setzen
 
-**WICHTIG:** Ändere das Passwort!
+**Wichtig:** Ändere das Passwort!
 
 ```bash
 railway variables set NEO4J_AUTH=neo4j/dein-sicheres-passwort

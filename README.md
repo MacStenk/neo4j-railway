@@ -1,26 +1,26 @@
-# Neo4j Railway Deployment 🚀
+# Neo4j Railway Deployment
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/neo4j?referralCode=your-code)
 
 Production-ready Neo4j 5.15.0 deployment optimized for Railway's infrastructure. Features memory-optimized settings (768MB total), APOC plugin, and one-click deployment.
 
-## ✨ Features
+## Features
 
-- 🚀 **One-Click Deploy** - Deploy directly from GitHub to Railway
-- 💾 **Memory Optimized** - 768MB total RAM (256MB Pagecache + 512MB Heap)
-- 🔌 **APOC Plugin** - Pre-installed for advanced graph operations
-- 🌐 **Both Protocols** - Bolt (7687) and HTTP (7474) enabled
-- 🏥 **Health Check** - Automatic container monitoring
-- ⚡ **Railway Ready** - Optimized for Railway Free/Hobby tier
+- **One-Click Deploy** - Deploy directly from GitHub to Railway
+- **Memory Optimized** - 768MB total RAM (256MB Pagecache + 512MB Heap)
+- **APOC Plugin** - Pre-installed for advanced graph operations
+- **Both Protocols** - Bolt (7687) and HTTP (7474) enabled
+- **Health Check** - Automatic container monitoring
+- **Railway Ready** - Optimized for Railway Free/Hobby tier
 
-## 🎯 Quick Deploy to Railway
+## Quick Deploy to Railway
 
 ### Option 1: One-Click Deploy (Easiest)
 
 1. Click the "Deploy on Railway" button above
 2. Set your password in the environment variables
 3. Wait for deployment to complete
-4. Access your Neo4j instance!
+4. Access your Neo4j instance
 
 ### Option 2: Deploy from CLI
 
@@ -57,9 +57,9 @@ railway logs --follow
 6. Deploy
 ```
 
-## 🔐 Security Configuration
+## Security Configuration
 
-**⚠️ IMPORTANT:** Change the default password immediately!
+**Important:** Change the default password immediately.
 
 Set the `NEO4J_AUTH` environment variable in Railway:
 
@@ -69,9 +69,9 @@ NEO4J_AUTH=neo4j/your-secure-password
 
 Minimum password length: 8 characters
 
-## 💾 Data Persistence (CRITICAL!)
+## Data Persistence
 
-**⚠️ WITHOUT A VOLUME, ALL DATA IS LOST ON REDEPLOY!**
+**Without a volume, all data is lost on redeploy.**
 
 ### Add Volume After First Deployment:
 
@@ -89,11 +89,11 @@ Minimum password length: 8 characters
 
 **Cost:** ~$0.25/GB/month
 
-## 🌐 Connecting to Neo4j
+## Connecting to Neo4j
 
-**⚠️ IMPORTANT: Configure Networking First!**
+**Important: Configure Networking First**
 
-After deployment, you MUST configure networking in Railway:
+After deployment, you must configure networking in Railway:
 
 ### Step 1: Generate HTTP Domain
 1. Settings → Networking → **"Generate Domain"**
@@ -130,7 +130,7 @@ Password: your-secure-password
 
 **Note:** Use `bolt://` (not `bolt+s://`) for Railway TCP Proxy connections.
 
-## 📊 Memory Configuration
+## Memory Configuration
 
 Default settings (total ~768MB):
 
@@ -156,7 +156,7 @@ railway variables set NEO4J_dbms_memory_heap_max__size=1G
 railway variables set NEO4J_dbms_memory_heap_initial__size=512M
 ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 
@@ -178,7 +178,7 @@ Railway automatically exposes these ports via:
 - Public domain for port 7474
 - TCP Proxy for port 7687
 
-## 🔍 Troubleshooting
+## Troubleshooting
 
 ### Container crashes immediately
 
@@ -219,14 +219,14 @@ railway redeploy
 - View logs for startup errors
 - Health check retries automatically
 
-## 📖 Documentation Files
+## Documentation Files
 
 - `QUICKSTART.md` - Step-by-step deployment guide
 - `DEPLOYMENT.md` - Detailed deployment instructions
 - `README.md` - This file
 - `deploy.sh` - Automated deployment script
 
-## 🧪 Testing Your Installation
+## Testing Your Installation
 
 After deployment, test with these Cypher queries:
 
@@ -242,14 +242,14 @@ CALL apoc.help("apoc.create");
 CALL dbms.components();
 ```
 
-## 🎓 Learning Resources
+## Learning Resources
 
 - [Neo4j Documentation](https://neo4j.com/docs/)
 - [APOC Documentation](https://neo4j.com/labs/apoc/)
 - [Railway Documentation](https://docs.railway.app/)
 - [Cypher Query Language](https://neo4j.com/developer/cypher/)
 
-## 💰 Cost Estimation
+## Cost Estimation
 
 ### Railway Free Trial
 - 512MB RAM, 1GB Disk
@@ -268,9 +268,9 @@ CALL dbms.components();
 - Scalable resources
 - **Recommended for production**
 
-## 🤝 Contributing
+## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome. Please feel free to submit a Pull Request.
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -278,31 +278,25 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📝 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
-- Neo4j Team for the amazing graph database
-- Railway Team for the excellent deployment platform
+- Neo4j Team for the graph database
+- Railway Team for the deployment platform
 - APOC contributors for extended procedures
 
-## 📞 Support
+## Support
 
 - **Issues:** [GitHub Issues](https://github.com/MacStenk/neo4j-railway/issues)
 - **Discussions:** [GitHub Discussions](https://github.com/MacStenk/neo4j-railway/discussions)
 - **Railway Community:** [Railway Discord](https://discord.gg/railway)
 
-## 🔗 Links
+## Links
 
 - [GitHub Repository](https://github.com/MacStenk/neo4j-railway)
 - [Railway Platform](https://railway.app)
 - [Neo4j Official](https://neo4j.com)
 - [APOC Library](https://neo4j.com/labs/apoc/)
-
----
-
-**Made with ❤️ for the Neo4j and Railway communities**
-
-*Star ⭐ this repository if you find it helpful!*

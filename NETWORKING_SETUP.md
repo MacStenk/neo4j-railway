@@ -1,24 +1,24 @@
-# 🌐 Railway Networking Setup - MANDATORY
+# Railway Networking Setup
 
-## Nach dem ersten erfolgreichen Deployment MUSST du das Networking konfigurieren!
+## Nach dem ersten erfolgreichen Deployment musst du das Networking konfigurieren
 
 ### Schritt 1: Generate Domain (HTTP - Port 7474)
 
 1. Gehe zu **Settings → Networking**
 2. Unter **"Public Networking"** klicke **"Generate Domain"**
 3. Railway erstellt automatisch: `neo4j-production-xxx.up.railway.app`
-4. ✅ Diese URL ist für den **Neo4j Browser** (Port 7474)
+4. Diese URL ist für den **Neo4j Browser** (Port 7474)
 
 ### Schritt 2: TCP Proxy (Bolt - Port 7687)
 
 1. In **"Public Networking"** klicke **"+ TCP Proxy"**
 2. Port eingeben: **7687**
 3. Railway erstellt: `maglev.proxy.rlwy.net:XXXXX`
-4. ✅ Diese URL ist für **Bolt-Verbindungen** (Apps/Tools)
+4. Diese URL ist für **Bolt-Verbindungen** (Apps/Tools)
 
 ---
 
-## 📋 Nach Setup hast du:
+## Nach Setup hast du:
 
 ### HTTP Domain (Neo4j Browser)
 ```
@@ -36,25 +36,25 @@ Verwendung: Für Anwendungen, Cypher-Shell, Neo4j Desktop
 
 ---
 
-## 🔗 Verbindung testen
+## Verbindung testen
 
 ### Via Browser (HTTP):
 1. Öffne: `https://deine-domain.up.railway.app`
 2. Login:
    - Username: `neo4j`
    - Password: (dein gesetztes Passwort)
-3. ✅ Sollte Neo4j Browser zeigen
+3. Sollte Neo4j Browser zeigen
 
 ### Via Bolt (z.B. Neo4j Desktop):
 1. Add Database
 2. URL: `bolt://maglev.proxy.rlwy.net:DEIN_PORT`
 3. Username: `neo4j`
 4. Password: (dein Passwort)
-5. ✅ Connect
+5. Connect
 
 ---
 
-## ⚠️ Wichtig zu wissen:
+## Wichtig zu wissen:
 
 ### HTTP vs Bolt:
 - **HTTP (7474)**: Nur für Neo4j Browser UI
@@ -71,7 +71,7 @@ Klicke auf **"+ Custom Domain"** wenn du eine eigene Domain verwenden willst:
 
 ---
 
-## 🧪 Test-Commands
+## Test-Commands
 
 ### HTTP testen:
 ```bash
@@ -90,11 +90,11 @@ telnet maglev.proxy.rlwy.net DEIN_PORT
 
 ---
 
-## 📖 Zusammenfassung:
+## Zusammenfassung:
 
-1. ✅ **Generate Domain** → HTTP-Zugriff
-2. ✅ **+ TCP Proxy (Port 7687)** → Bolt-Zugriff
-3. ✅ Beide URLs notieren
-4. ✅ Testen!
+1. **Generate Domain** → HTTP-Zugriff
+2. **+ TCP Proxy (Port 7687)** → Bolt-Zugriff
+3. Beide URLs notieren
+4. Testen
 
-**Ohne diese Setup-Schritte ist Neo4j NICHT von außen erreichbar!**
+**Ohne diese Setup-Schritte ist Neo4j nicht von außen erreichbar.**

@@ -1,4 +1,4 @@
-# 💾 Volume Setup für Datenpersistenz
+# Volume Setup für Datenpersistenz
 
 ## Warum ein Volume?
 
@@ -60,10 +60,10 @@ Beispiele:
 ## Was wird gespeichert?
 
 Das Volume unter `/data` enthält:
-- 📊 **Datenbank-Dateien** (graph.db)
-- 📝 **Transaction Logs**
-- 🔐 **Security Credentials**
-- ⚙️ **System-Konfiguration**
+- **Datenbank-Dateien** (graph.db)
+- **Transaction Logs**
+- **Security Credentials**
+- **System-Konfiguration**
 
 ## Nach Volume-Setup verifizieren
 
@@ -213,13 +213,13 @@ mount | grep /data
 
 ## Best Practices
 
-✅ **DO:**
-- Volume SOFORT nach erstem Deploy hinzufügen
+**DO:**
+- Volume sofort nach erstem Deploy hinzufügen
 - Regelmäßige Backups erstellen
 - Volume-Größe monitoren
 - Permissions prüfen nach Setup
 
-❌ **DON'T:**
+**DON'T:**
 - Volume erst später hinzufügen (Datenverlust!)
 - Ohne Backups arbeiten
 - Volume zu klein dimensionieren
@@ -261,4 +261,4 @@ du -ah /data | sort -rh | head -n 20
 
 ---
 
-**💡 Tipp:** Füge das Volume IMMER beim ersten Deployment hinzu, um Datenverlust zu vermeiden!
+**Tipp:** Füge das Volume immer beim ersten Deployment hinzu, um Datenverlust zu vermeiden.

@@ -1,4 +1,4 @@
-# 🚀 Quick Start - Neo4j auf Railway
+# Quick Start - Neo4j auf Railway
 
 ## Option 1: Automatisches Deployment (Empfohlen)
 
@@ -9,10 +9,10 @@ chmod +x deploy.sh
 ```
 
 Das Script macht automatisch:
-- ✅ Git initialisieren
-- ✅ Railway Projekt erstellen
-- ✅ Passwort setzen
-- ✅ Deployment starten
+- Git initialisieren
+- Railway Projekt erstellen
+- Passwort setzen
+- Deployment starten
 
 ## Option 2: Manuelles Deployment
 
@@ -53,7 +53,7 @@ Started.
 Remote interface available at http://0.0.0.0:7474/
 ```
 
-## 🌐 Nach dem Deployment
+## Nach dem Deployment
 
 ### 1. Railway Dashboard öffnen
 ```bash
@@ -83,9 +83,9 @@ Username: neo4j
 Password: dein-passwort
 ```
 
-⚠️ **WICHTIG:** Verwende `bolt://` (NICHT `bolt+s://`)!
+**Wichtig:** Verwende `bolt://` (NICHT `bolt+s://`)
 
-## 🔍 Troubleshooting
+## Troubleshooting
 
 ### Container startet nicht?
 ```bash
@@ -114,7 +114,7 @@ cypher-shell -u neo4j -p altes-passwort
 CALL dbms.security.changePassword('neues-passwort');
 ```
 
-## 📊 Wichtige Commands
+## Wichtige Commands
 
 ```bash
 # Logs anzeigen
@@ -136,7 +136,7 @@ railway open
 railway variables
 ```
 
-## ✅ Success Checklist
+## Success Checklist
 
 - [ ] Railway CLI installiert (`npm install -g @railway/cli`)
 - [ ] Railway Account erstellt
@@ -149,7 +149,7 @@ railway variables
 - [ ] TCP Proxy Port notiert
 - [ ] Verbindung mit Neo4j Browser erfolgreich
 
-## 🎯 Next Steps
+## Next Steps
 
 1. **Teste die Verbindung:**
    ```cypher
@@ -167,11 +167,9 @@ railway variables
    neo4j-admin database dump neo4j
    ```
 
-## 💡 Tipps
+## Tipps
 
 - Nutze Railway Environment Variables für alle Secrets
 - Aktiviere automatische Backups (Railway Add-ons)
 - Monitore RAM-Nutzung im Railway Dashboard
 - Upgraden zu Hobby Plan für mehr Stabilität (1GB RAM statt 512MB)
-
-Viel Erfolg! 🚀

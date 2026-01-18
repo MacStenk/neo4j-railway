@@ -1,4 +1,4 @@
-# 🚂 Railway Deployment Guide
+# Railway Deployment Guide
 
 ## Methode 1: GitHub Repository Deploy (Empfohlen)
 
@@ -120,7 +120,7 @@ Folge Schritt 3-6 von Methode 1 (Environment Variables, Networking, etc.)
 
 ---
 
-## ⚙️ Post-Deployment Konfiguration
+## Post-Deployment Konfiguration
 
 ### Memory Anpassungen (Optional)
 
@@ -159,7 +159,7 @@ railway variables set NEO4J_AUTH=neo4j/neues-passwort
 
 ---
 
-## 🔍 Troubleshooting Railway
+## Troubleshooting Railway
 
 ### "Deployment failed" während Build
 
@@ -214,7 +214,7 @@ curl http://localhost:7474
 
 ---
 
-## 📊 Railway Dashboard Navigation
+## Railway Dashboard Navigation
 
 ```
 Project Dashboard
@@ -231,47 +231,47 @@ Project Dashboard
 
 ---
 
-## 💡 Best Practices
+## Best Practices
 
 ### 1. Environment Variables
 
-✅ **DO:**
+**DO:**
 - Verwende Railway Variables für Passwörter
 - Setze `NEO4J_AUTH` vor dem ersten Start
 - Dokumentiere Custom Variables
 
-❌ **DON'T:**
+**DON'T:**
 - Hardcode Passwörter im Dockerfile
 - Commite .env Dateien zu Git
 - Verwende default Passwörter in Production
 
 ### 2. Resource Management
 
-✅ **DO:**
+**DO:**
 - Starte mit default Settings (768MB)
 - Monitore RAM Usage im Dashboard
 - Upgrade Plan bei Bedarf
 
-❌ **DON'T:**
+**DON'T:**
 - Setze Memory höher als verfügbar
 - Ignoriere "Out of Memory" Errors
 - Lasse Service im Trial unbegrenzt laufen
 
 ### 3. Security
 
-✅ **DO:**
+**DO:**
 - Ändere Passwort nach Deployment
 - Verwende starke Passwörter (16+ Zeichen)
 - Aktiviere 2FA für Railway Account
 
-❌ **DON'T:**
+**DON'T:**
 - Verwende `changeme123` in Production
 - Teile Credentials öffentlich
 - Deaktiviere Authentication
 
 ---
 
-## 🎓 Weiterführende Links
+## Weiterführende Links
 
 - [Railway Docs](https://docs.railway.app/)
 - [Neo4j Docs](https://neo4j.com/docs/)
@@ -280,7 +280,7 @@ Project Dashboard
 
 ---
 
-## ✅ Deployment Checklist
+## Deployment Checklist
 
 - [ ] Railway Account erstellt
 - [ ] GitHub autorisiert (für Methode 1 & 3)
@@ -293,5 +293,3 @@ Project Dashboard
 - [ ] Erste Verbindung erfolgreich
 - [ ] Passwort geändert (nach Test)
 - [ ] Backup-Strategie definiert
-
-🎉 **Fertig! Deine Neo4j-Instanz läuft auf Railway!**
